@@ -186,3 +186,16 @@ export async function usePresetSettings(preset) {
         }
     }
 }
+
+export async function exportMouseCoords(buttonMapping) {
+    let e = getData(buttonMapping);
+    return JSON.parse(e ?? '{}');
+}
+
+export async function logAllMouseCoords() {
+    let mappings = ['missionButtonMappings', 'sleepButtonMappings'];
+    for (let map of mappings) {
+        console.log('Exported mappings for ' + map + ':');
+        console.log(exportMouseCoords(map));
+    }
+}
