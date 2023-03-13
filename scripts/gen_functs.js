@@ -59,32 +59,48 @@ function checkForAscOrDesc(aElement) {
 }
 
 function getHorseBreed() {
-    let breedElem = $('a[href*="/dossiers/race?"]');
-    if (breedElem.length > 0) {
-        let breed = $(breedElem[0]).text();
-        return breed;
-    };
-    return null;
+    let selector = "#characteristics-body-content a[href*='/dossiers/srace?']";
+    return $(selector)?.html()?.replace(/ /g, "") ?? null;
+}
+
+function hasBMI(alias) {
+    let names = {
+        achilles: 'talon-achille',
+        apollos: 'lyre-apollon',
+        arms: 'bras-morphee',
+        artemis: 'fleche-artemis',
+        croesus: 'pactole-cresus',
+        fifth: '5th-element',
+        helios: 'rayon-helios',
+        hera: 'pack-hera',
+        hestia: 'don-hestia',
+        hypnos: 'couverture-hypnos',
+        magichat: 'chapeau-magique',
+        medusa: 'sang-meduse',
+        nyx: 'pack-nyx',
+        parchment: 'parchemin-ploutos',
+        philotes: 'caresse-philotes',
+        poseidon: 'pack-poseidon',
+        poc: 'fragment-nuage',
+        pocp: 'pack-fragment-nuage',
+        pumpkin: 'citrouille-ensorcelee',
+        sota: 'sceau-apocalypse',
+        stone: 'pierre-philosophale',
+        tears: 'larmes-aphrodite',
+        timer: 'sablier-chronos',
+        wand: 'baton-fertilite',
+        woy: 'eau-jouvence',
+        elves: 'pack-xmas-gear-2'
+     };
+    return $("#objects-body-content").find("a[href*='" + names[alias] + "']").length > 0;
 }
 
 function checkIfHasHypnos() {
-    // setTimeout(() => {
-    let itemsTable = $("#objects-body-content");
-    let hypnos = $(itemsTable).find('img[alt*="hypnos"]');
-    if (hypnos && hypnos[0]) {
-        return true;
-    };
-    return false;
-    // }, 1000);
+    return hasBMI('hypnos');
 }
 
 function checkIfHasHeel() {
-    let itemsTable = $("#objects-body-content");
-    let heel = $(itemsTable).find('img[alt*="achilles"]');
-    if (heel && heel[0]) {
-        return true;
-    };
-    return false;
+    return hasBMI('achilles');
 }
 
 function getHorseEnergy() {
