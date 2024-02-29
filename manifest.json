@@ -12,10 +12,10 @@
       "scripts/pages/competition.js", "scripts/pages/ride_section.js", "scripts/pages/care_section.js", "scripts/pages/eq_center.js", "scripts/pages/new_foal.js",
       "scripts/content.js"],
       "matches": [
-        "https://us.howrse.com/elevage/chevaux/cheval*",
-        "https://us.howrse.com/elevage/chevaux/centreInscription*",
-        "https://us.howrse.com/elevage/competition/*",
-        "https://us.howrse.com/elevage/chevaux/choisirNoms*"
+        "*/elevage/chevaux/cheval*",
+        "*/elevage/chevaux/centreInscription*",
+        "*/elevage/competition/*",
+        "*/elevage/chevaux/choisirNoms*"
       ]
     }
   ],
